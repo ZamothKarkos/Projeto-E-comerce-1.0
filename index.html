@@ -173,7 +173,7 @@
 
         <div tabindex="-1" data-micromodal-close>
 
-            <div class="contai" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+            <div class="container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
 
                 <header>
                     <h2 id="modal-1-title">
@@ -187,37 +187,37 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>produto</th>
-                                <th>Descrição</th>
-                                <th>Valor</th>
-                                <th>Quantidade</th>
-                                <th>Total</th>
+                                <th class="th-produto">produto</th>
+                                <th class="th-descrição">Descrição</th>
+                                <th class="th-valor">Valor</th>
+                                <th class="th-quantidades">Quantidade</th>
+                                <th class="th-total">Total</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><img src="assets/imagens/camiseta_roxa.jpg" alt="Camiseta Roxa - Dev em Dobro"></td>
+                                <td class="td-produto"><img src="assets/imagens/camiseta_roxa.jpg" alt="Camiseta Roxa - Dev em Dobro"></td>
                                 <td>Camiseta Dev em Dobro</td>
-                                <td>R$ 89,00</td>
-                                <td><input type="number" value="1" min="1"></td>
-                                <td>R$ 89,00</td>
-                                <td><button id="deletar">Deletar</button></td>
+                                <td class="td-preco-unitario">R$ 89,00</td>
+                                <td class="td-quantidade"><input type="number" value="1" min="1"></td>
+                                <td class="td-preco-total">R$ 89,00</td>
+                                <td><button class="btn-remover" id="deletar"></button></td>
                             </tr>
 
                             <tr>
-                                <td><img src="assets/imagens/caneca_devemdobro.jpg" alt="Caneca - Dev em Dobro"></td>
+                                <td class="td-produto"><img src="assets/imagens/caneca_devemdobro.jpg" alt="Caneca - Dev em Dobro"></td>
                                 <td>Caneca Dev em Dobro</td>
-                                <td>R$ 89,00</td>
-                                <td><input type="number" value="1" min="1"></td>
-                                <td>R$ 89,00</td>
-                                <td><button id="deletar">Deletar</button></td>
+                                <td class="td-preco-unitario">R$ 89,00</td>
+                                <td class="td-quantidade"><input type="number" value="1" min="1"></td>
+                                <td class="td-preco-total">R$ 89,00</td>
+                                <td><button class="btn-remover" id="deletar"></button></td>
                             </tr>
                         </tbody>
                     </table>
-                    <div>
-                        <span id="total-carrinho">R$ 0,00</span>
-                        <button>Finalizar compra</button>
+                    <div class="container-preco">
+                        <span class="total-carrinho" id="total-carrinho">Total: R$ 0,00</span>
+                        <button class="finalizar-compra">Finalizar compra</button>
                     </div>
                 </div>
 
@@ -229,4 +229,4 @@
 
 </body>
 
-</html>
+</html>  
