@@ -27,11 +27,26 @@ console.log(botoesAdicionarAoCarrinho);
 //     passo 2 - adicionar uma evento de escuta nesses botões pra quando clicar disparar uma acao
 botoesAdicionarAoCarrinho.forEach((botao) => {
     botao.addEventListener("click", (evento) => {
-        console.log("Botão de adicionar ao carrinho clicado");
+        // passo 3 - pega as informações do produto clicado e adicionar no localStorage v1.0
+        // const elementoProduto = evento.target.closest(".produto");
+        // const produtoId = elementoProduto.dataset.id;
+        // const produtoNome = elementoProduto.querySelector(".nome").textContent;
+        // const produtoImagem = elementoProduto.querySelector("img").getAttribute("src");
+        // const produtoPreco = parseFloat(elementoProduto.querySelector(".preco")).textContent.replace("R$","").replace(",", ".");
+
+        // passo 3 - pega as informações do produto clicado e adicionar no localStorage 1v1.1
+                const elementoProduto = evento.target.closest(".produto");
+        const produtoId = elementoProduto.dataset.id;
+        const produtoNome = elementoProduto.querySelector(".nome").textContent;
+        const produtoImagem = elementoProduto.querySelector("img").getAttribute("src");
+        const produtoPreco = parseFloat(elementoProduto.querySelector(".preco").textContent.replace("R$","").replace(".", "").replace(",", ".")); // Corrected line
+
+
+        console.log(produtoPreco);
+
+
     });
 });
-
-// passo 3 - pega as informações do produto clicado e adicionar no localStorage
 
 
 
