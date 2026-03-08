@@ -29,22 +29,42 @@ const botoesAdicionarAoCarrinho = document.querySelectorAll('.adicionar-ao-carri
 //     passo 2 - adicionar uma evento de escuta nesses botões pra quando clicar disparar uma ação.
 botoesAdicionarAoCarrinho.forEach((botao) => {
     botao.addEventListener("click", (evento) => {
-        console.log("Botão de adicionar ao carrinho clicado!");
+        // console.log("Botão de adicionar ao carrinho clicado!");
         //passo 3 - pega as informações do produto clicado e adicionar no localStorage
         const elementoProduto = evento.target.closest(".produto");
         const produtoId = elementoProduto.dataset.id;
-        const proddutoNome = elementoProduto.querySelector(".nome").textContent;
+        const produtoNome = elementoProduto.querySelector(".nome").textContent;
         const produtoImagem = elementoProduto.querySelector("img").getAttribute("src");
         const produtoPreco = parseFloat(elementoProduto.querySelector(".preco").textContent.replace("R$ ", "").replace(".", " ").replace(",", "."));
 
-        const produto = {
-            id: produtoId,
-            nome: proddutoNome,
-            imagem: produtoImagem,
-            preco: produtoPreco,
-            quantidade: 1 //Inicializa a quantidade como 1
-        };
+        //buscar a lista de produtos do localStorage
+        const carrinho = obterProdutosDoCarrinho();
+        //testar se o produto já existe no carrinho
+        const existeProduto = carrinho.find(produto => produto.id === produtoId);
+        //se existe produto, incrementar a quantidade
+        if (existeProduto) { // Changed 'existente' to 'existeProduto'
+            existeProduto.quantidade += 1;
+        } else {
+            //se não existe, adicionar produto com quantidade 1
+            const produto = {
+                id: produtoId,
+                nome: produtoNome,
+                imagem: produtoImagem,
+                preco: produtoPreco,
+                quantidade: 1,
+            };
+            carrinho.push(produto);
+        }
 
-        localStorage.setItem("carrinho", JSON.stringify(produto));
+        salvarProdutosNoCarrinho(carrinho);
     });
 });
+
+function salvarProdutosNoCarrinho(carrinho){
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+}
+
+function obterProdutosDoCarrinho() {
+    const produtos = localStorage.getItem("carrinho");
+    return produtos ? JSON.parse(produtos) : [];
+}
