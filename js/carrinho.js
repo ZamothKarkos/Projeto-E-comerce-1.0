@@ -55,12 +55,12 @@ botoesAdicionarAoCarrinho.forEach((botao) => {
             };
             carrinho.push(produto);
         }
-
         salvarProdutosNoCarrinho(carrinho);
+        atualizarContadorCarrinho();
     });
 });
 
-function salvarProdutosNoCarrinho(carrinho){
+function salvarProdutosNoCarrinho(carrinho) {
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
 }
 
@@ -68,3 +68,44 @@ function obterProdutosDoCarrinho() {
     const produtos = localStorage.getItem("carrinho");
     return produtos ? JSON.parse(produtos) : [];
 }
+
+//passo 4 - atualizar o contador do carrinho de compras
+function atualizarContadorCarrinho() {
+    const produtos = obterProdutosDoCarrinho();
+    let total = 0;
+
+    produtos.forEach(produto => {
+        total += produto.quantidade;
+    });
+
+    document.getElementById("contador-carrinho").textContent = total;
+}
+
+atualizarContadorCarrinho();
+
+//passo 5 - renderizar a tabela do carrinho de compras
+
+function renderizarTabelaDoCarrinho() {
+    const produtos = obterProdutosDoCarrinho();
+    const tabelaCarrinho = document.getElementById("tabela-carrinho");
+    const corpoTabela = document.querySelector("#modal-1-content tbody");
+    corpoTabela.innerHTML = ""; //limpar tabela antes de renderizar
+
+    produtos.forEach(produto => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td class="td-produto">
+        <img 
+            src="${produto.imagem}"
+            alt="${produto.nome}"
+        </td>
+        <td class="td-preco-unitario">R$ ${produto.preco.toFixed(2).replace(".", ",")}</td>
+        <td class="td-quantidade"><input type="number" value="${produto.quantidade}" min="1"></td>
+        <td class="td-preco-total">R$ ${produto.preco.toFixed(2).replace(".", ",")}</td>
+        <td><button class="btn-remover" data-id=${produto.id} id="deletar"></button></td>`;
+        corpoTabela.appendChild(tr);
+    })
+
+
+}
+
+renderizarTabelaDoCarrinho();
