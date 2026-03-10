@@ -84,13 +84,11 @@ function atualizarContadorCarrinho() {
 atualizarContadorCarrinho();
 
 //passo 5 - renderizar a tabela do carrinho de compras
-
 function renderizarTabelaDoCarrinho() {
     const produtos = obterProdutosDoCarrinho();
     const tabelaCarrinho = document.getElementById("tabela-carrinho");
     const corpoTabela = document.querySelector("#modal-1-content tbody");
     corpoTabela.innerHTML = ""; //limpar tabela antes de renderizar
-
     produtos.forEach(produto => {
         const tr = document.createElement("tr");
         tr.innerHTML = `<td class="td-produto">
@@ -104,8 +102,41 @@ function renderizarTabelaDoCarrinho() {
         <td><button class="btn-remover" data-id=${produto.id} id="deletar"></button></td>`;
         corpoTabela.appendChild(tr);
     })
-
-
 }
 
 renderizarTabelaDoCarrinho();
+
+// Objetivo 2 - remover produtos do carrinho
+//     passo 1 - pegar o botão de deletar do html
+const corpoTabela = document.querySelector("#modal-1-content table tbody");
+if (corpoTabela) {
+    corpoTabela.addEventListener("click", evento => {
+        // identificamos o botão com a classe usada na renderização
+        if (evento.target.classList.contains('btn-remover')) {
+            const id = evento.target.dataset.id;
+            removerDoCarrinho(id);
+        }
+    });
+}
+
+function removerDoCarrinho(id){
+    // obter todos os produtos do carrinho
+    const produtos = obterProdutosDoCarrinho();
+    // filtrar os produtos que não têm o id por parâmetro
+    const carrinhoAtualizado = produtos.filter(produto => produto.id !== id);
+    salvarProdutosNoCarrinho(carrinhoAtualizado);
+    atualizarContadorCarrinho();
+    renderizarTabelaDoCarrinho();
+}
+
+// Inicializar MicroModal
+MicroModal.init({
+    onShow: function(modal) {
+        modal.removeAttribute('inert');
+        modal.setAttribute('aria-hidden', 'false');
+    },
+    onClose: function(modal) {
+        modal.setAttribute('inert', '');
+        modal.setAttribute('aria-hidden', 'true');
+    }
+});

@@ -47,7 +47,7 @@
 .th-total,
 .td-produto,
 .td-preco-total {
-    display: none;
+    display: block;
 }
 
 tbody td {
