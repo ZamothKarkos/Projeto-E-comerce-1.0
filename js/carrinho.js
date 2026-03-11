@@ -97,8 +97,7 @@ if (corpoTabela) {
 }
 
 function removerDoCarrinho(id){
-    // console.log(removerDoCarrinho);
-    // obter todos os produtos do carrinho
+    console.log(removerDoCarrinho);
     const produtos = obterProdutosDoCarrinho();
     // filtrar os produtos que não têm o id por parâmetro
     const carrinhoAtualizado = produtos.filter(produto => produto.id !== id);
@@ -106,18 +105,6 @@ function removerDoCarrinho(id){
     atualizarContadorCarrinho();
     renderizarTabelaDoCarrinho();
 }
-
-// Inicializar MicroModal
-MicroModal.init({
-    onShow: function(modal) {
-        modal.removeAttribute('inert');
-        modal.setAttribute('aria-hidden', 'false');
-    },
-    onClose: function(modal) {
-        modal.setAttribute('inert', '');
-        modal.setAttribute('aria-hidden', 'true');
-    }
-});
 
 corpoTabela.addEventListener("input", evento => {
     const inputQuantidade = evento.target;
