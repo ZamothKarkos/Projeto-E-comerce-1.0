@@ -127,6 +127,80 @@ td .btn-remover {
     background-color: var(--cor-primaria-hover);
 }
 
+@media (max-width: 430px) {
+  .modal {
+    overflow-y: auto; /* permite scroll do backdrop, caso necessário */
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+
+  .modal .container {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    height: auto;
+    margin: 0;
+    padding: 1rem 1rem 2rem;
+    box-sizing: border-box;
+    border-radius: 0;
+  }
+
+  .modal header {
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .modal header h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .modal header .fechar {
+    width: 28px;
+    height: 28px;
+  }
+
+  .container-preco {
+    align-items: stretch;
+  }
+
+  .total-carrinho {
+    font-size: 1.5rem;
+  }
+
+  .finalizar-compra {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+
+  td .btn-remover {
+    padding: 0.3rem;
+  }
+
+  td.td-quantidade input {
+    width: 40px;
+  }
+
+  table,
+  thead,
+  tbody,
+  tr,
+  th,
+  td {
+    width: 100%;
+    display: block;
+  }
+  th, td {
+    text-align: left;
+    padding: 0.5rem 0.3rem;
+  }
+  .th-produto, 
+  .th-total, 
+  .td-produto, 
+  .td-preco-total {
+    display: block;
+  }
+}
+
 @media(min-width: 769px) {
     .modal.is-open{
         display: flex;
