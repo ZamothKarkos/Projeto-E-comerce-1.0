@@ -328,3 +328,67 @@ td .btn-remover {
         width: 44px;
     }
 }
+
+@media (max-width: 765px) {
+    .modal.is-open {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .modal .container {
+        width: 100%;
+        max-width: 720px;
+        height: auto;
+        max-height: calc(100vh - 20px);
+        margin: 0.5rem;
+        padding: 1rem;
+        border-radius: 12px;
+        overflow-y: auto;
+    }
+
+    .modal header {
+        flex-direction: column;
+        align-items: start;
+        gap: 0.7rem;
+    }
+
+    .modal header h2 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .th-produto,
+    .th-total,
+    .td-produto,
+    .td-preco-total {
+        display: table-cell;
+    }
+
+    td img {
+        width: 40px;
+        height: auto;
+    }
+
+    .container-preco {
+        align-items: stretch;
+    }
+
+    .total-carrinho {
+        font-size: 1.7rem;
+        text-align: right;
+    }
+
+    .finalizar-compra {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .td-quantidade input {
+        width: 44px;
+    }
+}
+
+
+
