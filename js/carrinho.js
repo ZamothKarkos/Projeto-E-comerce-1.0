@@ -142,6 +142,6 @@ function atualizarValorTotalCarrinho() {
     const total = produtos.reduce((soma, produto) => soma + produto.preco * produto.quantidade, 0);
     const elementoTotal = document.getElementById("total-carrinho");
     if (elementoTotal) {
-        elementoTotal.textContent = `Total: R$ ${total.toFixed(2).replace(".", ",")}`;
+        elementoTotal.textContent = `Valor total: R$ ${total.toFixed(2).replace(".", ",")}`;
     }
 }

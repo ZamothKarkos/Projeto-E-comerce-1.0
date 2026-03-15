@@ -213,7 +213,8 @@
                             </tr>
 
                             <tr>
-                                <td class="td-produto"><img src="assets/imagens/camisa-preta" alt="Camisa Preta - Dev em Dobro"></td>
+                                <td class="td-produto"><img src="assets/imagens/camisa-preta"
+                                        alt="Camisa Preta - Dev em Dobro"></td>
                                 <td>Camisa Dev em Dobro (Preta)</td>
                                 <td class="td-preco-unitario">R$ 89,00</td>
                                 <td class="td-quantidade"><input type="number" value="1" min="1"></td>
@@ -222,7 +223,8 @@
                             </tr>
 
                             <tr>
-                                <td class="td-produto"><img src="assets/imagens/caneca-preta" alt="Caneca Preta - Dev em Dobro"></td>
+                                <td class="td-produto"><img src="assets/imagens/caneca-preta"
+                                        alt="Caneca Preta - Dev em Dobro"></td>
                                 <td>Caneca Dev em Dobro</td>
                                 <td class="td-preco-unitario">R$ 89,00</td>
                                 <td class="td-quantidade"><input type="number" value="1" min="1"></td>
@@ -231,7 +233,8 @@
                             </tr>
 
                             <tr>
-                                <td class="td-produto"><img src="assets/imagens/camisa_verde" alt="Camisa Verde - Dev em Dobro"></td>
+                                <td class="td-produto"><img src="assets/imagens/camisa_verde"
+                                        alt="Camisa Verde - Dev em Dobro"></td>
                                 <td>Camisa Dev em Dobro (Verde)</td>
                                 <td class="td-preco-unitario">R$ 89,00</td>
                                 <td class="td-quantidade"><input type="number" value="1" min="1"></td>
@@ -240,7 +243,8 @@
                             </tr>
 
                             <tr>
-                                <td class="td-produto"><img src="assets/imagens/caneca-verde" alt="Caneca Verde - Dev em Dobro"></td>
+                                <td class="td-produto"><img src="assets/imagens/caneca-verde"
+                                        alt="Caneca Verde - Dev em Dobro"></td>
                                 <td>Caneca Dev em Dobro (Verde)</td>
                                 <td class="td-preco-unitario">R$ 89,00</td>
                                 <td class="td-quantidade"><input type="number" value="1" min="1"></td>
@@ -250,6 +254,18 @@
                         </tbody>
                     </table>
                     <div class="container-preco">
+                        <div class="container-cep-frete">
+                            <label for="cep">Calcular Frete</label>
+                            <div class="container-cep-input">
+                                <input type="text" id="input-cep" placeholder="Digite seu CEP">
+                                <button id="btn-calcular-frete">Calcular Frete</button>
+                            </div>
+                        </div>
+                        <div class="container-preco-total">
+                            <span id="subtotal-pedidos">Subtotal dos pedidos:
+                                <span class="valor">R$ 100,00</span></span>
+                            <span id="valor-frete">Valor do Frete <span>xxx</span></span>
+                        </div>
                         <span class="total-carrinho" id="total-carrinho">Total: R$ 0,00</span>
                         <button class="finalizar-compra">Finalizar compra</button>
                     </div>
